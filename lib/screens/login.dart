@@ -3,6 +3,7 @@ import 'package:mm/screens/home/home_screen.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
 import 'package:mm/theme/customButtom.dart';
+import 'package:mm/theme/text_form_field.dart';
 
 class Login extends StatelessWidget {
   static const String routeName = "login";
@@ -26,57 +27,15 @@ class Login extends StatelessWidget {
               const SizedBox(height: 32),
 
               // Email Field
-              TextFormField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.email, color: appColors.white),
-                  hintText: "Enter your email",
-                  hintStyle: TextStyle(color: appColors.white),
-                  filled: true,
-                  fillColor: Colors.grey[900],
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-                validator: (email) {
-                  final bool emailValid =
-                  RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}")
-                      .hasMatch(email!);
-                  if (!emailValid) {
-                    return "Please enter a valid email";
-                  }
-                  return null;
-                },
-              ),
+     CustomTextFormField(text: "Enter Your Email",
+       PrefixiconData: Icons.email,
+     ),
               const SizedBox(height: 16),
 
               // Password Field
-              TextFormField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(
-                      Icons.lock, color: appColors.white),
-                  suffixIcon: Icon(Icons.remove_red_eye_rounded,color: appColors.white,),
-                  hintText: "Enter your password",
-                  hintStyle: TextStyle(color: appColors.white),
-                  filled: true,
-                  fillColor: Colors.grey[900],
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-                validator: (password) {
-                  if (password!.isEmpty) {
-                    return "Enter password";
-                  } else if (password.length < 6) {
-                    return "Password must be at least 6 characters";
-                  }
-                  return null;
-                },
-              ),
-
-              const SizedBox(height: 16),
+              CustomTextFormField(text:"Enter Your Password",
+                PrefixiconData: Icons.lock,SuffixiconData: Icons.remove_red_eye,)
+              , SizedBox(height: 16),
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
