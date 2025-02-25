@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mm/screens/Login/Register_screen.dart';
 import 'package:mm/screens/home/home_screen.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
@@ -61,7 +62,7 @@ Custombutton(title: "Login",
                         fontSize: 14,
                         fontWeight: FontWeight.w400),),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.pushNamed(context, RegisterScreen.routeName);},
                     child: Text(
                       "Create Account",
                       style: TextStyle(color: appColors.yellow),

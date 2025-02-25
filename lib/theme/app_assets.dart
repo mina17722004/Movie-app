@@ -17,4 +17,10 @@ class AppAssets{
   ="assets/1917film.png";
   static const String sum
   ="assets/sum.png";
+  static const String gamerOne
+  ="assets/gamer1.png";
+  static const String gamerTwo
+  ="assets/gamer2.png";
+  static const String gamerThree
+  ="assets/gamer3.png";
 }

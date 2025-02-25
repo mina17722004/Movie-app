@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mm/screens/Login/Register_screen.dart';
 import 'package:mm/screens/home/home_screen.dart';
-import 'package:mm/screens/login.dart';
+import 'package:mm/screens/Login/login.dart';
 import 'package:mm/screens/onBoarding/onBoardingFive.dart';
 import 'package:mm/screens/onBoarding/onBoarding_four.dart';
 import 'package:mm/screens/onBoarding/onBoarding_three.dart';
@@ -29,6 +30,8 @@ class MyApp extends StatelessWidget {
         onboardingSix.routeName:(_)=>onboardingSix(),
         Login.routeName:(_)=>Login(),
         HomeScreen.routeName:(_)=>HomeScreen(),
+        RegisterScreen.routeName:(_)=>RegisterScreen(),
+
 
 
 
