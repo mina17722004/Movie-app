@@ -14,6 +14,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context,) {
     return Container(
       child: TextFormField(
+style: TextStyle(color: appColors.white),
           decoration: InputDecoration(
           prefixIcon: Icon(PrefixiconData, color: appColors.white),
               suffixIcon: Icon(SuffixiconData,color: appColors.white,),
@@ -24,6 +25,7 @@ class CustomTextFormField extends StatelessWidget {
       border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide.none,
+
       ),
       ),
       ),

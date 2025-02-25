@@ -24,7 +24,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         backgroundColor: Colors.black,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {},
+          onPressed: () {Navigator.pop(context);},
         ),
         title: Text("Register", style: TextStyle(color: Colors.yellow, fontSize: 20)),
         centerTitle: true,
