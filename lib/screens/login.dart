@@ -96,7 +96,7 @@ Custombutton(title: "Login",
 
               Column(
                 children: [
-                  Text("Don’t Have Account ? ",
+                  Text("Don’t Have Account? ",
                     style: TextStyle(
                         color: appColors.white,
                         fontSize: 14,
