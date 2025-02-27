@@ -1,4 +1,5 @@
 plugins {
+    id("com.google.gms.google-services")
     id("com.android.application")
     id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
@@ -24,10 +25,11 @@ android {
         applicationId = "com.example.mm"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = 23
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
     }
 
     buildTypes {
@@ -38,6 +40,24 @@ android {
         }
     }
 }
+dependencies {
+    // Import the Firebase BoM (Bill of Materials)
+    implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
+
+    // Add the Firebase SDK for Analytics
+    implementation("com.google.firebase:firebase-analytics")
+
+    // Add the dependencies for any other Firebase services you need
+    // Example: Firebase Authentication
+    implementation("com.google.firebase:firebase-auth")
+
+    // Example: Firebase Firestore
+    implementation("com.google.firebase:firebase-firestore")
+
+    // Example: Firebase Cloud Messaging (FCM)
+    implementation("com.google.firebase:firebase-messaging")
+}
+
 
 flutter {
     source = "../.."

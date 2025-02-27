@@ -65,6 +65,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               text: "Password",
               PrefixiconData: Icons.lock,
               SuffixiconData: isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+
             ),
             SizedBox(height: 16),
 
