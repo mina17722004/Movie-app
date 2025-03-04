@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:mm/screens/home/profile_screen.dart';
+import 'package:mm/screens/home/search_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
+
+import 'explore_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "homeScreen";
@@ -140,7 +144,6 @@ class _HomeWidgetState extends State<HomeWidget> {
           left: MediaQuery.of(context).size.width * 0.28,
           child: Image.asset(AppAssets.watchNow, width: 200),
         ),
-        // Action Movies Section (Updated ListView)
         Positioned(
           top: 520,
           left: 20,
@@ -159,7 +162,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           right: 20,
           child: GestureDetector(
             onTap: () {
-              // Handle "See More"
+
             },
             child: Text(
               "See More →",
@@ -167,8 +170,6 @@ class _HomeWidgetState extends State<HomeWidget> {
             ),
           ),
         ),
-
-        // Horizontal Movie List (Updated to ensure valid images)
         Positioned(
           top: 550,
           left: 0,
@@ -223,32 +224,6 @@ class _HomeWidgetState extends State<HomeWidget> {
   }
 }
 
-// Search Widget
-class SearchWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text("Search Screen", style: TextStyle(color: Colors.white, fontSize: 24)),
-    );
-  }
-}
 
-// Explore Widget
-class ExploreWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text("Explore Screen", style: TextStyle(color: Colors.white, fontSize: 24)),
-    );
-  }
-}
 
-// Profile Widget
-class ProfileWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text("Profile Screen", style: TextStyle(color: Colors.white, fontSize: 24)),
-    );
-  }
-}
+
