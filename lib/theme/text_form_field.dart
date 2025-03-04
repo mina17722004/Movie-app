@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mm/theme/app_colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final String text;
@@ -38,7 +39,7 @@ class CustomTextFormField extends StatelessWidget {
         hintText: text,
         hintStyle: TextStyle(color: Colors.white),
         filled: true,
-        fillColor: Colors.grey[900],
+        fillColor: appColors.grey,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide.none,

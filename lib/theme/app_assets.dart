@@ -37,6 +37,8 @@ class AppAssets{
   ="assets/availableNow.png";
   static const String watchNow
   ="assets/watchNow.png";
+  static const String empty
+  ="assets/empty.png";
 
 
 }
