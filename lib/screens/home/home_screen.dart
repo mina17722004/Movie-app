@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName = "homeScreen";
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
+  int _selectedTab = 0;
 
   final List<String> movieImages = [
     AppAssets.superMan,
@@ -16,59 +25,66 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appColors.black,
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.only(bottom: 0, left: 7, right: 7, top: 7),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(16),
-            child: BottomNavigationBar(
-              backgroundColor: appColors.grey,
-              selectedItemColor: appColors.yellow,
-              unselectedItemColor: Colors.white,
-              type: BottomNavigationBarType.fixed,
-              items: [
-                BottomNavigationBarItem(
-                  icon: Image.asset(AppAssets.homeIcon, height: 28),
-                  label: "",
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset(AppAssets.searchIcon, height: 28),
-                  label: "",
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset(AppAssets.exploreIcon, height: 28),
-                  label: "",
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset(AppAssets.ProfileIcon, height: 28),
-                  label: "",
-                ),
-              ],
-            ),
+      bottomNavigationBar: SalomonBottomBar(
+       itemPadding: EdgeInsets.all(16),
+        //backgroundColor: appColors.grey,
+        currentIndex: _selectedTab,
+        onTap: (index) {
+          setState(() {
+            _selectedTab = index;
+          });
+        },
+        selectedItemColor: appColors.yellow,
+        items: [
+          SalomonBottomBarItem(
+            icon: Icon(Icons.home, size: 28),
+            title: Text("Home"),
+              selectedColor: appColors.yellow,
+            unselectedColor: appColors.white
           ),
-        ),
+          SalomonBottomBarItem(
+            icon: Icon(Icons.search, size: 28),
+            title: Text("Search"),
+              selectedColor: appColors.yellow,
+              unselectedColor: appColors.white
+          ),
+          SalomonBottomBarItem(
+            icon: Icon(Icons.explore, size: 28),
+            title: Text("Explore"),
+              selectedColor: appColors.yellow,
+              unselectedColor: appColors.white
+          ),
+          SalomonBottomBarItem(
+            icon: Icon(Icons.person, size: 28),
+            title: Text("Profile"),
+            selectedColor: appColors.yellow,
+              unselectedColor: appColors.white
+          ),
+        ],
       ),
       body: Stack(
         children: [
-          // Background Image with Opacity
+          // Dynamic Background Image
           Positioned.fill(
-            child: Opacity(
-              opacity: 0.7,
+            child: AnimatedSwitcher(
+              duration: Duration(milliseconds: 500),
               child: Image.asset(
-                AppAssets.openHimer,
+                movieImages[_currentIndex],
+                key: ValueKey<String>(movieImages[_currentIndex]),
                 fit: BoxFit.cover,
+                color: Colors.black.withOpacity(0.5),
+                colorBlendMode: BlendMode.darken,
               ),
             ),
           ),
 
-          // "Available Now" Image
           Positioned(
             top: 10,
             left: MediaQuery.of(context).size.width * 0.28,
             child: Image.asset(AppAssets.avaliableNow, width: 200),
           ),
 
-          // Movie Posters Carousel (with overlapping effect)
+          // Movie Posters Carousel
           Positioned(
             top: 70,
             left: 0,
@@ -80,11 +96,13 @@ class HomeScreen extends StatelessWidget {
                 height: 250,
                 autoPlay: true,
                 enlargeCenterPage: true,
-                viewportFraction: 0.5, // Adjust to make posters overlap
-                aspectRatio: 16 / 9,
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enableInfiniteScroll: true,
+                viewportFraction: 0.5,
                 autoPlayAnimationDuration: Duration(milliseconds: 800),
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
               ),
               itemBuilder: (context, index, realIndex) {
                 return moviePoster(movieImages[index]);
@@ -92,7 +110,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          // "Watch Now" Image
+          // "Watch Now"
           Positioned(
             top: 330,
             left: MediaQuery.of(context).size.width * 0.28,
@@ -101,7 +119,7 @@ class HomeScreen extends StatelessWidget {
 
           // Action Movies Section
           Positioned(
-            top: 370,
+            top: 450,
             left: 20,
             child: Text(
               "Action",
@@ -114,11 +132,11 @@ class HomeScreen extends StatelessWidget {
           ),
 
           Positioned(
-            top: 380,
+            top: 450,
             right: 20,
             child: GestureDetector(
               onTap: () {
-                // Handle "See More" action
+                // Handle "See More"
               },
               child: Text(
                 "See More →",
@@ -129,7 +147,7 @@ class HomeScreen extends StatelessWidget {
 
           // Horizontal Movie List
           Positioned(
-            top: 420,
+            top: 480,
             left: 0,
             right: 0,
             height: 170,
