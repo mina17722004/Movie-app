@@ -23,4 +23,20 @@ class AppAssets{
   ="assets/gamer2.png";
   static const String gamerThree
   ="assets/gamer3.png";
+  static const String forgetPassword
+  ="assets/forgetPassword.png";
+  static const String homeIcon
+  ="assets/homeIcon.png";
+  static const String ProfileIcon
+  ="assets/ProfileIcon.png";
+  static const String searchIcon
+  ="assets/searchIcon.png";
+  static const String exploreIcon
+  ="assets/exploreIcon.png";
+  static const String avaliableNow
+  ="assets/availableNow.png";
+  static const String watchNow
+  ="assets/watchNow.png";
+
+
 }

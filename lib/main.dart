@@ -1,7 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mm/screens/Login/Register_screen.dart';
+import 'package:mm/screens/Login/forget_password.dart';
+import 'package:mm/screens/Login/login_screen.dart';
 import 'package:mm/screens/home/home_screen.dart';
-import 'package:mm/screens/Login/login.dart';
+
 import 'package:mm/screens/onBoarding/onBoardingFive.dart';
 import 'package:mm/screens/onBoarding/onBoarding_four.dart';
 import 'package:mm/screens/onBoarding/onBoarding_three.dart';
@@ -12,7 +15,9 @@ import 'package:mm/screens/splash_screen.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized(); // Ensure Flutter is initialized
+  await Firebase.initializeApp(); // Initialize Firebase
   runApp(MyApp());
 }
 
@@ -28,21 +33,22 @@ class MyApp extends StatelessWidget {
         onboardingFour.routeName:(_)=>onboardingFour(),
         onboardingFive.routeName:(_)=>onboardingFive(),
         onboardingSix.routeName:(_)=>onboardingSix(),
-        Login.routeName:(_)=>Login(),
+        LoginScreen.routeName:(_)=>LoginScreen(),
         HomeScreen.routeName:(_)=>HomeScreen(),
         RegisterScreen.routeName:(_)=>RegisterScreen(),
+        ForgetPassword.routeName:(_)=>ForgetPassword(),
 
 
 
 
 
       },
-      initialRoute: SplashScreen.routeName,
+      initialRoute: HomeScreen.routeName,
       title: 'Flutter Splash Screen',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
+      home: HomeScreen(),
     );
   }
 }

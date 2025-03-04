@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mm/screens/Login/login.dart';
+
+import 'package:mm/screens/Login/login_screen.dart';
 import 'package:mm/screens/onBoarding/onBoardingFive.dart';
 
 import '../../theme/app_assets.dart';
@@ -83,7 +84,7 @@ class onboardingSix extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-Navigator.pushNamed(context, Login.routeName);
+Navigator.pushNamed(context, LoginScreen.routeName);
                         },
                         child:
 

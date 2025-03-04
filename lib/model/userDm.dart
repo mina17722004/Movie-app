@@ -1,28 +1,33 @@
-import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class userDm{
-  static late userDm currentUser;
- late String id;
-  late String name;
-  late String email;
-  late List<String>? favouritesEventId;
+class UserDm {
+  final String uid;
+  final String email;
+  final String name;
 
-  userDm({required this.name,required this.id,required this.email,this.favouritesEventId});
-  userDm.fromJson(Map<Object,Object?>json){
-    name = json["name"] as String;
-   id = json["id"] as String;
-    email =  json["email"] as String;
-    List<dynamic>? events= json["favouritesEventId"] as List<dynamic>?;
-    favouritesEventId = events?.map((event)=>event.toString()).toList();
+
+  UserDm({
+    required this.uid,
+    required this.email,
+    required this.name,
+
+  });
+
+  factory UserDm.fromFirestore(Map<String, dynamic> data) {
+    return UserDm(
+      uid: data['uid'] ?? '',
+      email: data['email'] ?? '',
+      name: data['name'] ?? 'Anonymous',
+
+    );
   }
-  Map <String,dynamic>tojson(){
-    return{"id":id,
-      "name":name,
-      "email":email
-      ,"favouritesEventId":favouritesEventId};
-  }
-  bool isFavouriteEvent(String eventId){
-    return favouritesEventId?.contains(eventId)?? false;
+  Map<String, dynamic> toJson() {
+    return {
+      'uid': uid,
+      'email': email,
+      'name': name,
+
+    };
   }
 
 }
