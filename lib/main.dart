@@ -11,7 +11,7 @@ import 'package:mm/screens/onBoarding/onBoarding_three.dart';
 import 'package:mm/screens/onBoarding/onboardingSix.dart';
 import 'package:mm/screens/onBoarding/onboarding_one.dart';
 import 'package:mm/screens/onBoarding/onboarding_two.dart';
-import 'package:mm/screens/splash_screen.dart';
+import 'package:mm/splash_screen/splash_screen.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
 

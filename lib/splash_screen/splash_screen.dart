@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_assets.dart';
 import '../theme/app_colors.dart';
-import 'onBoarding/onboarding_one.dart';
+import '../screens/onBoarding/onboarding_one.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String routeName="splashScreen";
