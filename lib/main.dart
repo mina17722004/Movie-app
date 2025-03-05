@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mm/screens/Login/Register_screen.dart';
 import 'package:mm/screens/Login/forget_password.dart';
 import 'package:mm/screens/Login/login_screen.dart';
+import 'package:mm/screens/home/home.dart';
 import 'package:mm/screens/home/home_screen.dart';
 
 import 'package:mm/screens/onBoarding/onBoardingFive.dart';

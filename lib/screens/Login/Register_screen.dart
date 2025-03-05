@@ -7,6 +7,7 @@ import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
 import 'package:mm/theme/customButton.dart';
 import '../../theme/text_form_field.dart';
+import '../home/home.dart';
 
 class RegisterScreen extends StatefulWidget {
   static const String routeName = "registerScreen";

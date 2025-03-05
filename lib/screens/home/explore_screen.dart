@@ -10,6 +10,7 @@ class ExploreWidget extends StatefulWidget {
 class _ExploreWidgetState extends State<ExploreWidget> {
   int _tabTextIndexSelected = 0;
 
+
   final List<DataTab> _listTextTabToggle = [
     DataTab(title: "Action"),
     DataTab(title: "Adventure"),
