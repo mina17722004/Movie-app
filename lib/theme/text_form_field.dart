@@ -9,6 +9,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final VoidCallback? suffixOnTap;
+  final Function(String)? onchanged;
 
   CustomTextFormField({
     super.key,
@@ -19,11 +20,13 @@ class CustomTextFormField extends StatelessWidget {
     this.controller,
     this.validator,
     this.suffixOnTap,
+    this.onchanged
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+onChanged: onchanged,
       controller: controller,
       obscureText: obscureText,
       validator: validator,
