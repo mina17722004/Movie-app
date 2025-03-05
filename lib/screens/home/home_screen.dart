@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:mm/screens/home/profile_screen.dart';
-import 'package:mm/screens/home/search_screen.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
 import '../../apis/movie_servers.dart';
 import '../../model/movie_model.dart';
-import 'explore_screen.dart';
 
 class HomeWidget extends StatefulWidget {
   @override
@@ -101,15 +97,11 @@ class _HomeWidgetState extends State<HomeWidget> {
             },
           ),
         ),
-
-        // "Watch Now" Text
         Positioned(
           top: 440,
           left: MediaQuery.of(context).size.width * 0.28,
           child: Image.asset(AppAssets.watchNow, width: 200),
         ),
-
-        // "Action" Text
         Positioned(
           top: 520,
           left: 20,
@@ -122,14 +114,11 @@ class _HomeWidgetState extends State<HomeWidget> {
             ),
           ),
         ),
-
-        // "See More" Text
         Positioned(
           top: 520,
           right: 20,
           child: GestureDetector(
             onTap: () {
-              // Navigate to a detailed list of movies
             },
             child: Text(
               "See More →",
@@ -137,8 +126,6 @@ class _HomeWidgetState extends State<HomeWidget> {
             ),
           ),
         ),
-
-        // Horizontal List of Movies
         Positioned(
           top: 550,
           left: 0,
