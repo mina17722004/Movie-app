@@ -4,6 +4,7 @@ import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
 import '../../apis/movie_servers.dart';
 import '../../model/movie_model.dart';
+import 'movie_details.dart';
 
 class HomeWidget extends StatefulWidget {
   @override
@@ -90,7 +91,17 @@ class _HomeWidgetState extends State<HomeWidget> {
                     },
                   ),
                   itemBuilder: (context, index, realIndex) {
-                    return moviePoster(snapshot.data![index].largeCoverImage);
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MovieDetailsScreen(movie: snapshot.data![index]),
+                          ),
+                        );
+                      },
+                      child: moviePoster(snapshot.data![index].largeCoverImage),
+                    );
                   },
                 );
               }
@@ -119,6 +130,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           right: 20,
           child: GestureDetector(
             onTap: () {
+              // TODO: Implement "See More" navigation
             },
             child: Text(
               "See More →",
@@ -144,7 +156,18 @@ class _HomeWidgetState extends State<HomeWidget> {
                 return ListView(
                   scrollDirection: Axis.horizontal,
                   children: snapshot.data!
-                      .map((movie) => movieThumbnail(movie.largeCoverImage, movie.rating.toString()))
+                      .map((movie) => GestureDetector(
+                    onTap: () {
+                      // Navigate to Movie Details Screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MovieDetailsScreen(movie: movie),
+                        ),
+                      );
+                    },
+                    child: movieThumbnail(movie.largeCoverImage, movie.rating.toString()),
+                  ))
                       .toList(),
                 );
               }

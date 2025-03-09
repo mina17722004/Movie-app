@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:mm/screens/Login/Register_screen.dart';
 import 'package:mm/screens/Login/forget_password.dart';
 import 'package:mm/screens/Login/login_screen.dart';
+import 'package:mm/screens/home/edit_profile_screen.dart';
 import 'package:mm/screens/home/home.dart';
 import 'package:mm/screens/home/home_screen.dart';
+import 'package:mm/screens/home/movie_details.dart';
 
 import 'package:mm/screens/onBoarding/onBoardingFive.dart';
 import 'package:mm/screens/onBoarding/onBoarding_four.dart';
@@ -38,13 +40,15 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName:(_)=>HomeScreen(),
         RegisterScreen.routeName:(_)=>RegisterScreen(),
         ForgetPassword.routeName:(_)=>ForgetPassword(),
+        EditProfileScreen.routeName:(_)=>EditProfileScreen()
+
 
 
 
 
 
       },
-      initialRoute: SplashScreen.routeName,
+      initialRoute: HomeScreen.routeName,
       title: 'Flutter Splash Screen',
       theme: ThemeData(
         primarySwatch: Colors.blue,
