@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
 
 
       },
-      initialRoute: HomeScreen.routeName,
+      initialRoute: SplashScreen.routeName,
       title: 'Flutter Splash Screen',
       theme: ThemeData(
         primarySwatch: Colors.blue,

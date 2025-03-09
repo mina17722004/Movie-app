@@ -40,5 +40,13 @@ class AppAssets{
   static const String empty
   ="assets/empty.png";
 
+  static String getAvatar(String filename) {
+    Map<String, String> avatarMap = {
+      "gamerOne.png": gamerOne,
+      "gamerTwo.png": gamerTwo,
+      "gamerThree.png": gamerThree,
+    };
 
+    return avatarMap[filename] ?? gamerOne; // Default to gamerOne if not found
+  }
 }

@@ -140,6 +140,7 @@ class _LoginFireState extends State<LoginScreen> {
                     hideLoading(context);
                     await checkFirestoreUser(credential.user!.uid);
                     Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+
                   } on FirebaseAuthException catch (e) {
                     hideLoading(context);
                     showMassege(context, e.message ?? "An error occurred", posButton: "OK");

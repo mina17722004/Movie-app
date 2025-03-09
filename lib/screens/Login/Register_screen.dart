@@ -2,12 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mm/screens/Login/login_screen.dart';
+import 'package:mm/screens/home/home.dart';
 import 'package:mm/screens/home/home_screen.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
 import 'package:mm/theme/customButton.dart';
 import '../../theme/text_form_field.dart';
-import '../home/home.dart';
 
 class RegisterScreen extends StatefulWidget {
   static const String routeName = "registerScreen";
@@ -19,12 +19,20 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   bool isPasswordVisible = false;
   bool isConfirmPasswordVisible = false;
-
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  // Avatar Selection
+  String _selectedAvatar = "gamerOne.png"; // Default avatar
+
+  final List<String> avatarOptions = [
+    "gamerOne.png",
+    "gamerTwo.png",
+    "gamerThree.png",
+  ];
 
   Future<void> registerUser() async {
     if (!formKey.currentState!.validate()) return;
@@ -41,6 +49,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           "uid": user.uid,
           "name": nameController.text,
           "email": emailController.text,
+          "iconUrl": _selectedAvatar, // Save selected avatar
         });
 
         Navigator.pushNamed(context, HomeScreen.routeName);
@@ -71,21 +80,43 @@ class _RegisterScreenState extends State<RegisterScreen> {
           key: formKey,
           child: Column(
             children: [
+              // Avatar Selection UI
+              Text("Pick an Avatar", style: TextStyle(color: Colors.white, fontSize: 18)),
+              SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(radius: 30, backgroundColor: Colors.grey[800], child: Image.asset(AppAssets.gamerOne)),
-                  SizedBox(width: 16),
-                  CircleAvatar(radius: 50, backgroundColor: Colors.blue, child: Image.asset(AppAssets.gamerTwo)),
-                  SizedBox(width: 16),
-                  CircleAvatar(radius: 30, backgroundColor: Colors.grey[800], child: Image.asset(AppAssets.gamerThree)),
-                ],
+                children: avatarOptions.map((avatar) {
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedAvatar = avatar;
+                      });
+                    },
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 8),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: _selectedAvatar == avatar ? Colors.yellow : Colors.transparent,
+                          width: 3,
+                        ),
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: CircleAvatar(
+                        radius: 40,
+                        backgroundColor: Colors.grey[800],
+                        child: Image.asset(AppAssets.getAvatar(avatar)),
+                      ),
+                    ),
+                  );
+                }).toList(),
               ),
-              SizedBox(height: 8),
-              Text("Avatar", style: TextStyle(color: Colors.white)),
               SizedBox(height: 16),
+
+              // Name Field
               CustomTextFormField(controller: nameController, text: "Name", PrefixiconData: Icons.person),
               SizedBox(height: 16),
+
+              // Email Field
               CustomTextFormField(
                 controller: emailController,
                 text: "Email",
@@ -99,6 +130,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
               ),
               SizedBox(height: 16),
+
+              // Password Field
               CustomTextFormField(
                 controller: passwordController,
                 text: "Password",
@@ -117,6 +150,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
               ),
               SizedBox(height: 16),
+
+              // Confirm Password Field
               CustomTextFormField(
                 controller: confirmPasswordController,
                 text: "Confirm Password",
@@ -134,12 +169,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
               ),
               SizedBox(height: 24),
+
+              // Register Button
               Custombutton(title: "Create Account", onClick: registerUser),
               SizedBox(height: 16),
+
+              // Login Navigation
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Already Have Account? ", style: TextStyle(color: Colors.white)),
+                  Text("Already Have an Account? ", style: TextStyle(color: Colors.white)),
                   GestureDetector(
                     onTap: () => Navigator.pushNamed(context, LoginScreen.routeName),
                     child: Text("Login", style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold)),
