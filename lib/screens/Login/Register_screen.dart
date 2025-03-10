@@ -66,7 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         backgroundColor: Colors.black,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: appColors.yellow),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.pushNamed(context,LoginScreen.routeName ),
         ),
         title: Text("Register", style: TextStyle(color: appColors.yellow, fontSize: 20)),
         centerTitle: true,
@@ -107,8 +107,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 }).toList(),
               ),
               SizedBox(height: 16),
-
-              // Name Field
               CustomTextFormField(controller: nameController, text: "Name", PrefixiconData: Icons.person),
               SizedBox(height: 16),
               CustomTextFormField(
