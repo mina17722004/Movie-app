@@ -100,7 +100,6 @@ class _LoginFireState extends State<LoginScreen> {
                   return null;
                 },
               ),
-
                SizedBox(height: 16),
               Align(
                 alignment: Alignment.centerRight,
@@ -129,7 +128,7 @@ class _LoginFireState extends State<LoginScreen> {
                     }
                     hideLoading(context);
                     await checkFirestoreUser(credential.user!.uid);
-                    Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+                    Navigator.pushNamed(context, HomeScreen.routeName);
 
                   } on FirebaseAuthException catch (e) {
                     hideLoading(context);
@@ -153,18 +152,7 @@ class _LoginFireState extends State<LoginScreen> {
                 ],
               ),
               SizedBox(height: 16),
-              Row(
-                children: [
-                  Expanded(child: Divider(color: appColors.yellow)),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text("or", style: TextStyle(color: appColors.yellow, height: 2)),
-                  ),
-                  Expanded(child: Divider(color: appColors.yellow,)),
-                ],
-              ),
-              SizedBox(height: 16),
-              Custombutton(title: "Login With Google", onClick:(){Navigator.pushNamed(context, HomeScreen.routeName);} ),
+
             ],
           ),
         ),
