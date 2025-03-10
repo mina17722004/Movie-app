@@ -33,7 +33,7 @@ class _LoginFireState extends State<LoginScreen> {
             padding: const EdgeInsets.all(16.0),
             children: <Widget>[
               Image.asset(
-                AppAssets.appLogp, // Fixed typo
+                AppAssets.appLogp,
                 height: MediaQuery.of(context).size.height * 0.2,
               ),
               const SizedBox(height: 16),
