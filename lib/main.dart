@@ -20,8 +20,8 @@ import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
 
 void main() async{
-  WidgetsFlutterBinding.ensureInitialized(); // Ensure Flutter is initialized
-  await Firebase.initializeApp(); // Initialize Firebase
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -43,12 +43,6 @@ class MyApp extends StatelessWidget {
         ForgetPassword.routeName:(_)=>ForgetPassword(),
         EditProfileScreen.routeName:(_)=>EditProfileScreen(),
         SeeMoreScreen.routeName:(_)=>SeeMoreScreen()
-
-
-
-
-
-
       },
       initialRoute: HomeScreen.routeName,
       title: 'Flutter Splash Screen',

@@ -189,7 +189,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          selectedTab = tabIndex; // Change tab on tap
+          selectedTab = tabIndex;
         });
       },
       child: Column(
@@ -224,7 +224,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
       children: [
         Text(count,
             style: TextStyle(
-                color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                color: Colors.white, fontSize: 18,
+                fontWeight: FontWeight.bold)),
         Text(label,
             style: TextStyle(color: Colors.white70, fontSize: 14)),
       ],

@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mm/screens/Login/login_screen.dart';
 import 'package:mm/screens/home/home.dart';
-import 'package:mm/screens/home/four_widgets/home_widget/home_screen.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
 import 'package:mm/theme/customButton.dart';
@@ -24,9 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-  // Avatar Selection
-  String _selectedAvatar = "gamerOne.png"; // Default avatar
+  String _selectedAvatar = "gamerOne.png";
 
   final List<String> avatarOptions = [
     "gamerOne.png",
@@ -49,7 +46,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           "uid": user.uid,
           "name": nameController.text,
           "email": emailController.text,
-          "iconUrl": _selectedAvatar, // Save selected avatar
+          "iconUrl": _selectedAvatar,
         });
 
         Navigator.pushNamed(context, HomeScreen.routeName);
@@ -80,7 +77,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
           key: formKey,
           child: Column(
             children: [
-              // Avatar Selection UI
               Text("Pick an Avatar", style: TextStyle(color: Colors.white, fontSize: 18)),
               SizedBox(height: 10),
               Row(
@@ -115,8 +111,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               // Name Field
               CustomTextFormField(controller: nameController, text: "Name", PrefixiconData: Icons.person),
               SizedBox(height: 16),
-
-              // Email Field
               CustomTextFormField(
                 controller: emailController,
                 text: "Email",
@@ -130,8 +124,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
               ),
               SizedBox(height: 16),
-
-              // Password Field
               CustomTextFormField(
                 controller: passwordController,
                 text: "Password",
@@ -150,8 +142,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
               ),
               SizedBox(height: 16),
-
-              // Confirm Password Field
               CustomTextFormField(
                 controller: confirmPasswordController,
                 text: "Confirm Password",
@@ -170,11 +160,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               SizedBox(height: 24),
 
-              // Register Button
               Custombutton(title: "Create Account", onClick: registerUser),
               SizedBox(height: 16),
-
-              // Login Navigation
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

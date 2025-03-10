@@ -5,7 +5,6 @@ import '../../../../theme/app_colors.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final Movie movie;
-
   MovieDetailsScreen({super.key, required this.movie});
 
   @override
@@ -110,27 +109,30 @@ class MovieDetailsScreen extends StatelessWidget {
               height: 150,
               width: 400,
               child: Container(
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(22)),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(22)),
                 child: _screenshotItem(movie.backgroundImage),)
             ),
             SizedBox(height: 5,),
             SizedBox(
               height: 150,
               width: 400,
-              child: Container( decoration: BoxDecoration(borderRadius: BorderRadius.circular(22)),
+              child: Container( decoration:
+              BoxDecoration(borderRadius: BorderRadius.circular(22)),
                 child: _screenshotItem(movie.backgroundImage),)
             ),
             SizedBox(height: 5,),
             SizedBox(
               height: 150,
               width: 400,
-              child: Container( decoration: BoxDecoration(borderRadius: BorderRadius.circular(22)),
+              child: Container( decoration:
+              BoxDecoration(borderRadius: BorderRadius.circular(22)),
                 child: _screenshotItem(movie.backgroundImage),)
             ),
 
             _sectionTitle("Similar"),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+              padding:  EdgeInsets.symmetric(horizontal: 12),
               child: Column(
                 children: [
                   Row(
@@ -140,7 +142,7 @@ class MovieDetailsScreen extends StatelessWidget {
                       _buildMovieCard(movie),
                     ],
                   ),
-                  SizedBox(height: 10), // Add spacing between rows
+                  SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -206,8 +208,10 @@ class MovieDetailsScreen extends StatelessWidget {
 
   Widget _sectionTitle(String title) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-      child: Text(title, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
+      padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      child: Text(title,
+          style: TextStyle(fontSize: 22,
+              fontWeight: FontWeight.bold, color: Colors.white)),
     );
   }
 
@@ -216,7 +220,8 @@ class MovieDetailsScreen extends StatelessWidget {
       padding: const EdgeInsets.only(left: 12),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
-        child: Image.network(imageUrl, width: 150, fit: BoxFit.cover),
+        child: Image.network(imageUrl, width: 150,
+            fit: BoxFit.cover),
       ),
     );
   }
@@ -246,7 +251,6 @@ Widget _buildMovieCard(Movie movie) {
       padding: const EdgeInsets.symmetric(horizontal: 4),
       child: Stack(
         children: [
-          // Movie Poster
           Container(
             height: 250,
             decoration: BoxDecoration(

@@ -46,7 +46,7 @@ class _SearchWidgetState extends State<SearchWidget> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 15),
+          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 15),
           child: CustomTextFormField(
             text: "Search",
             PrefixiconData: Icons.search_outlined,

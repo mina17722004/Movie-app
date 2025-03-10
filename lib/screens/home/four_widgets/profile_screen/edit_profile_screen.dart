@@ -78,7 +78,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         title: Text("Pick Avatar", style: TextStyle(color:appColors.yellow)),
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: appColors.yellow),
-          onPressed: () => Navigator.pushReplacementNamed(context,HomeScreen.routeName),
+          onPressed: () =>
+              Navigator.pushReplacementNamed(context,HomeScreen.routeName),
         ),
       ),
       body: Padding(
@@ -87,7 +88,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           children: [
             CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage(AppAssets.getAvatar(_selectedAvatar?? "gamerOne.png")),
+              backgroundImage: AssetImage(
+                  AppAssets.getAvatar(_selectedAvatar?? "gamerOne.png")),
             ),
             SizedBox(height: 20),
             CustomTextFormField(

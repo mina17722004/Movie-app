@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'package:mm/screens/Login/login_screen.dart';
-import 'package:mm/screens/onBoarding/onBoardingFive.dart';
-
 import '../../theme/app_assets.dart';
 import '../../theme/app_colors.dart';
 
 class onboardingSix extends StatelessWidget {
   static const String routeName = "onboardingSix";
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +15,7 @@ class onboardingSix extends StatelessWidget {
           ),
           child: Stack(
             children: [
-
               Container(
-
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   gradient: LinearGradient(
@@ -31,24 +23,19 @@ class onboardingSix extends StatelessWidget {
                     end: Alignment.topCenter,
                     colors: [ Color(0xff4C2471),
                       Color(0xff4C2471),
-
                     ],
                   ),
                 ),
               ),
-
-              // Background Image
               Positioned.fill(
                 child: Opacity(
-                  opacity: 0.7, // Adjust opacity to make the gradient visible
+                  opacity: 0.7,
                   child: Image.asset(
                     AppAssets.film,
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-
-
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
@@ -74,7 +61,6 @@ class onboardingSix extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-
                       SizedBox(height: 20),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -101,7 +87,7 @@ Navigator.pushNamed(context, LoginScreen.routeName);
                           backgroundColor: appColors.black,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
-                            side: BorderSide(color: appColors.yellow, width: 2), // Border color and width
+                            side: BorderSide(color: appColors.yellow, width: 2),
                           ),
                         ),
                         onPressed: () {

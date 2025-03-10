@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:mm/screens/Login/forget_password.dart';
 import 'package:mm/theme/app_colors.dart';
 import 'package:mm/theme/customButton.dart';
-import 'package:mm/theme/text_form_field.dart';
 import '../../firebaseHelpers/firestore/firestoreHelpers.dart';
 import '../../theme/app_assets.dart';
 import '../../utils/dialog_utils.dart';
 import '../home/home.dart';
-import '../home/four_widgets/home_widget/home_screen.dart';
 import 'Register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -39,8 +37,6 @@ class _LoginFireState extends State<LoginScreen> {
                 height: MediaQuery.of(context).size.height * 0.2,
               ),
               const SizedBox(height: 16),
-
-              // Email Field
               TextFormField(
                 style: TextStyle(color: appColors.white),
                 controller: _emailController,
@@ -68,9 +64,7 @@ class _LoginFireState extends State<LoginScreen> {
                   return null;
                 },
               ),
-              const SizedBox(height: 16),
-
-              // Password Field with Visibility Toggle
+               SizedBox(height: 16),
               TextFormField(
                 style: TextStyle(color: appColors.white),
                 controller: _passwordController,
@@ -107,9 +101,7 @@ class _LoginFireState extends State<LoginScreen> {
                 },
               ),
 
-              const SizedBox(height: 16),
-
-              // Forgot Password
+               SizedBox(height: 16),
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
@@ -118,9 +110,7 @@ class _LoginFireState extends State<LoginScreen> {
                 ),
               ),
 
-              const SizedBox(height: 16),
-
-              // Login Button
+               SizedBox(height: 16),
               Custombutton(
                 onClick: () async {
                   if (!_formKey.currentState!.validate()) return;
@@ -149,9 +139,7 @@ class _LoginFireState extends State<LoginScreen> {
                 title: "Login",
               ),
 
-              const SizedBox(height: 16),
-
-              // Signup Navigation
+               SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -164,10 +152,7 @@ class _LoginFireState extends State<LoginScreen> {
                   ),
                 ],
               ),
-
-              const SizedBox(height: 16),
-
-
+              SizedBox(height: 16),
               Row(
                 children: [
                   Expanded(child: Divider(color: appColors.yellow)),
@@ -179,9 +164,6 @@ class _LoginFireState extends State<LoginScreen> {
                 ],
               ),
               SizedBox(height: 16),
-
-              // Signup Button
-
               Custombutton(title: "Login With Google", onClick:(){Navigator.pushNamed(context, HomeScreen.routeName);} ),
             ],
           ),

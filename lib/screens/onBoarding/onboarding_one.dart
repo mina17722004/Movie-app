@@ -10,21 +10,17 @@ class onBoardingOne extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Center(
         child: Container(
-
           decoration: BoxDecoration(
-
-
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: Colors.black),
             image: DecorationImage(
-              image: AssetImage(AppAssets.sum), // Replace with your image
+              image: AssetImage(AppAssets.sum),
               fit: BoxFit.cover,
             ),
           ),
           child: Stack(
             children: [
               Container(
-
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   gradient: LinearGradient(
@@ -32,7 +28,6 @@ class onBoardingOne extends StatelessWidget {
                     end: Alignment.topCenter,
                     colors: [
                  Colors.black,Colors.transparent
-
                     ],
                   ),
                 ),
@@ -74,7 +69,6 @@ class onBoardingOne extends StatelessWidget {
                         Navigator.pushNamed(context,onboardingTwo.routeName);
                       },
                       child:
-
                         Container(height: 16,width: 400,
                           child: Text(
                             'Explore Now',textAlign: TextAlign.center,

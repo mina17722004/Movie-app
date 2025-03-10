@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../screens/onBoarding/onBoardingFive.dart';
-import 'app_assets.dart';
 import 'app_colors.dart';
 
 class onboarding extends StatelessWidget {
@@ -34,23 +31,20 @@ String MovieImage;
                     end: Alignment.topCenter,
                     colors: [ Color(GradientColor),
                       Color(GradientColor),
-
                     ],
                   ),
                 ),
               ),
 
-              // Background Image
               Positioned.fill(
                 child: Opacity(
-                  opacity: 0.7, // Adjust opacity to make the gradient visible
+                  opacity: 0.7,
                   child: Image.asset(
                     MovieImage,
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-
 
               Align(
                 alignment: Alignment.bottomCenter,
@@ -112,7 +106,7 @@ String MovieImage;
                           backgroundColor: appColors.black,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
-                            side: BorderSide(color: appColors.yellow, width: 2), // Border color and width
+                            side: BorderSide(color: appColors.yellow, width: 2),
                           ),
                         ),
                         onPressed: () {
