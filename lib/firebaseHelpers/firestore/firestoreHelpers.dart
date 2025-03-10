@@ -8,10 +8,9 @@ Future<void>createUserInFirestore(UserDm userDm){
  CollectionReference usersCollection = FirebaseFirestore.instance.collection('users');
 return usersCollection.doc(userDm.uid).set(userDm.toJson());
 }
-
-
 Future<UserDm?> getUserFromFirestore(String uid) async {
- var userDoc = await FirebaseFirestore.instance.collection('users').doc(uid).get();
+ var userDoc =
+ await FirebaseFirestore.instance.collection('users').doc(uid).get();
 
  if (userDoc.exists) {
   print(" User found in Firestore: ${userDoc.data()}");
@@ -22,10 +21,6 @@ Future<UserDm?> getUserFromFirestore(String uid) async {
   return null;
  }
 }
-
-
-
-
 Future<void> checkFirestoreUser(String uid) async {
  var userRef = FirebaseFirestore.instance.collection('users').doc(uid);
  var docSnapshot = await userRef.get();
@@ -36,10 +31,9 @@ Future<void> checkFirestoreUser(String uid) async {
    "uid": uid,
    "email": FirebaseAuth.instance.currentUser?.email ?? "Unknown",
    "name": FirebaseAuth.instance.currentUser?.displayName ?? "Anonymous",
-   "createdAt": FieldValue.serverTimestamp(),
   });
  } else {
-  print("✅ User found in Firestore: ${docSnapshot.data()}");
+  print("User found in Firestore: ${docSnapshot.data()}");
  }
 }
 Future<void> saveUserToFirestore(User? user) async {
@@ -54,7 +48,6 @@ Future<void> saveUserToFirestore(User? user) async {
    "uid": user.uid,
    "email": user.email ?? "Unknown",
    "name": user.displayName ?? "Anonymous",
-   "createdAt": FieldValue.serverTimestamp(),
   }).then((_) {
    print(" User successfully saved to Firestore!");
   }).catchError((e) {
@@ -64,4 +57,3 @@ Future<void> saveUserToFirestore(User? user) async {
   print(" User found in Firestore: ${docSnapshot.data()}");
  }
 }
-

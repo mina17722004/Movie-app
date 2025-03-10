@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:mm/screens/home/four_widgets/home_widget/see_more_screen.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
-import '../../apis/movie_servers.dart';
-import '../../model/movie_model.dart';
-import 'movie_details.dart';
-
+import '../../../../apis/movie_servers.dart';
+import '../../../../model/movie_model.dart';
+import '../movie_details/movie_details.dart';
 class HomeWidget extends StatefulWidget {
   @override
   _HomeWidgetState createState() => _HomeWidgetState();
@@ -20,7 +20,6 @@ class _HomeWidgetState extends State<HomeWidget> {
     super.initState();
     futureMovies = MovieService().fetchMovies();
   }
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -130,7 +129,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           right: 20,
           child: GestureDetector(
             onTap: () {
-              // TODO: Implement "See More" navigation
+Navigator.pushNamed(context, SeeMoreScreen.routeName);
             },
             child: Text(
               "See More →",

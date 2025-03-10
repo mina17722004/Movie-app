@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mm/theme/app_assets.dart';
-import '../../model/movie_model.dart';
-import '../../theme/app_colors.dart';
+import '../../../../model/movie_model.dart';
+import '../../../../theme/app_colors.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final Movie movie;

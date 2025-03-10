@@ -2,37 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
 import 'package:mm/apis/movie_servers.dart';
 import 'package:mm/theme/app_colors.dart';
-import '../../model/movie_model.dart';
-import '../../theme/app_assets.dart';
+import '../../../../model/movie_model.dart';
+import '../../../../theme/app_assets.dart';
 
 class ExploreWidget extends StatefulWidget {
   const ExploreWidget({super.key});
-
   @override
   _ExploreWidgetState createState() => _ExploreWidgetState();
 }
-
 class _ExploreWidgetState extends State<ExploreWidget> {
   int _tabTextIndexSelected = 0;
   List<Movie> _movies = [];
   List<Movie> _filteredMovies = [];
   List<String> _genres = [];
   bool _isLoading = true;
-
   @override
   void initState() {
     super.initState();
     _fetchMovies();
   }
-
   Future<void> _fetchMovies() async {
     try {
-      List<Movie> movies = await MovieService().fetchMovies(); // Fetch movies from API
+      List<Movie> movies = await MovieService().fetchMovies();
       Set<String> uniqueGenres = {};
       for (var movie in movies) {
         uniqueGenres.addAll(movie.genres);
       }
-
       setState(() {
         _movies = movies;
         _genres = uniqueGenres.toList();
@@ -44,7 +39,6 @@ class _ExploreWidgetState extends State<ExploreWidget> {
       setState(() => _isLoading = false);
     }
   }
-
   void _filterMovies() {
     if (_genres.isEmpty) return;
     String selectedGenre = _genres[_tabTextIndexSelected];
@@ -64,7 +58,7 @@ class _ExploreWidgetState extends State<ExploreWidget> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
               child: SizedBox(
-                height: 50, // Constrain height
+                height: 50,
                 width: MediaQuery.of(context).size.width,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -80,31 +74,26 @@ class _ExploreWidgetState extends State<ExploreWidget> {
                         color: appColors.black,
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
-                      ),
-                      unSelectedTextStyle: TextStyle(
-                        color: appColors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      dataTabs: _genres.map((genre) => DataTab(title: genre)).toList(),
-                      selectedLabelIndex: (index) {
-                        setState(() {
-                          _tabTextIndexSelected = index;
-                          _filterMovies();
-                        });
-                      },
-                      isScroll: true,
-                    ),
-                  ],
-                ),
               ),
-            ),
-          Expanded(
-            child: _isLoading
-                ? Center(child: CircularProgressIndicator())
-                : _filteredMovies.isEmpty
-                ? Center(child: Image.asset(AppAssets.empty))
-                : Padding(
+        unSelectedTextStyle: TextStyle(
+           color: appColors.white,
+        fontSize: 14,
+     fontWeight: FontWeight.bold,
+        ),
+      dataTabs: _genres.map((genre) => DataTab(title: genre)).toList(),
+   selectedLabelIndex: (index) {
+            setState(() {
+             _tabTextIndexSelected = index;
+          _filterMovies();
+         });},
+        isScroll: true,
+         ),],),)),
+     Expanded(
+ child: _isLoading
+          ? Center(child: CircularProgressIndicator())
+          : _filteredMovies.isEmpty
+          ? Center(child: Image.asset(AppAssets.empty))
+          : Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

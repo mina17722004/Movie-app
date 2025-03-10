@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mm/screens/Login/login_screen.dart';
 import 'package:mm/screens/home/home.dart';
-import 'package:mm/screens/home/home_screen.dart';
+import 'package:mm/screens/home/four_widgets/home_widget/home_screen.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
 import 'package:mm/theme/customButton.dart';

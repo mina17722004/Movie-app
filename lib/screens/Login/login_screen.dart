@@ -8,7 +8,7 @@ import '../../firebaseHelpers/firestore/firestoreHelpers.dart';
 import '../../theme/app_assets.dart';
 import '../../utils/dialog_utils.dart';
 import '../home/home.dart';
-import '../home/home_screen.dart';
+import '../home/four_widgets/home_widget/home_screen.dart';
 import 'Register_screen.dart';
 
 class LoginScreen extends StatefulWidget {

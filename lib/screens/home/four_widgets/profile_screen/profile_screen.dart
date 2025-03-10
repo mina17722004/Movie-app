@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:mm/screens/home/edit_profile_screen.dart';
+import 'package:mm/screens/home/four_widgets/profile_screen/edit_profile_screen.dart';
 import 'package:mm/screens/home/home.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
-import '../../apis/movie_servers.dart';
-import '../../model/movie_model.dart';
+import '../../../../apis/movie_servers.dart';
+import '../../../../model/movie_model.dart';
 
 class ProfileWidget extends StatefulWidget {
   @override

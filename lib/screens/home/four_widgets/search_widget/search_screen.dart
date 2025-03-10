@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/text_form_field.dart';
-import '../../apis/movie_servers.dart';
-import '../../model/movie_model.dart';
+import '../../../../apis/movie_servers.dart';
+import '../../../../model/movie_model.dart';
 
 class SearchWidget extends StatefulWidget {
   @override
@@ -59,7 +59,8 @@ class _SearchWidgetState extends State<SearchWidget> {
               ? Center(child: Image.asset(AppAssets.empty))
               : Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: GridView.builder(
+            child:
+            GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,

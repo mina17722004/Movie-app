@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../model/movie_model.dart';
 
-
 class MovieService {
   final String baseUrl = "https://yts.mx/api/v2/list_movies.json";
 

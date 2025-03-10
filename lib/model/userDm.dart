@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mm/theme/app_assets.dart';
 
 class UserDm {
@@ -20,7 +19,7 @@ class UserDm {
     return UserDm(
       uid: data['uid'] ?? '',
       email: data['email'] ?? '',
-      name: data['name'] ?? 'Anonymous',
+      name: data['name'] ?? '',
       iconUrl: data['iconUrl']??AppAssets.gamerOne
 
     );

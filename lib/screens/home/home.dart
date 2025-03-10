@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:mm/screens/home/profile_screen.dart';
-import 'package:mm/screens/home/search_screen.dart';
+import 'package:mm/screens/home/four_widgets/profile_screen/profile_screen.dart';
+import 'package:mm/screens/home/four_widgets/search_widget/search_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-
 import '../../theme/app_colors.dart';
-import 'explore_screen.dart';
-import 'home_screen.dart';
+import 'four_widgets/explore_widget/explore_screen.dart';
+import 'four_widgets/home_widget/home_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "homeScreen";
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
-
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedTab = 0;
 
@@ -23,7 +20,6 @@ class _HomeScreenState extends State<HomeScreen> {
     ExploreWidget(),
     ProfileWidget(),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
