@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
         EditProfileScreen.routeName:(_)=>EditProfileScreen(),
         SeeMoreScreen.routeName:(_)=>SeeMoreScreen()
       },
-      initialRoute: HomeScreen.routeName,
+      initialRoute: SplashScreen.routeName,
       title: 'Flutter Splash Screen',
       theme: ThemeData(
         primarySwatch: Colors.blue,

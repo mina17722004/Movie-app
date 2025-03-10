@@ -6,7 +6,6 @@ import '../../../../theme/app_colors.dart';
 class MovieDetailsScreen extends StatelessWidget {
   final Movie movie;
   MovieDetailsScreen({super.key, required this.movie});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +94,7 @@ class MovieDetailsScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(16),
                               ),
                             ),
-                            child: Text("Match", style: TextStyle(fontSize: 18)),
+                            child: Text("Watch", style: TextStyle(fontSize: 18)),
                           ),
                         ),
                       ),
