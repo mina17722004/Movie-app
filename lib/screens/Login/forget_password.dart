@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mm/screens/Login/login_screen.dart';
 import 'package:mm/theme/app_assets.dart';
 import 'package:mm/theme/app_colors.dart';
 import 'package:mm/theme/customButton.dart';
@@ -44,7 +45,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
         backgroundColor: Colors.black,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: appColors.yellow),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.pushNamed(context, LoginScreen.routeName),
         ),
         title: Text("Forget Password", style: TextStyle(color: appColors.yellow, fontSize: 20)),
         centerTitle: true,
