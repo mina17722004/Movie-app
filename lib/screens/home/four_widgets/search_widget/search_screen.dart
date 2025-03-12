@@ -45,6 +45,7 @@ class _SearchWidgetState extends State<SearchWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(height: 20,),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 15),
           child: CustomTextFormField(

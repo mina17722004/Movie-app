@@ -51,7 +51,7 @@ class _ExploreWidgetState extends State<ExploreWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
           if (_genres.isNotEmpty)

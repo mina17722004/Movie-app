@@ -104,8 +104,10 @@ class _LoginFireState extends State<LoginScreen> {
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {Navigator.pushReplacementNamed(context, ForgetPassword.routeName);}, // Implement Forgot Password logic
-                  child: const Text("Forgot password?", style: TextStyle(color: appColors.yellow)),
+                  onPressed: () {Navigator.pushReplacementNamed(context, ForgetPassword.routeName);},
+                  child: const Text("Forgot password?",
+                      style: TextStyle(color: appColors.yellow,fontSize: 12
+                      )),
                 ),
               ),
 
@@ -142,12 +144,14 @@ class _LoginFireState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don't have an account?", style: TextStyle(color: appColors.white)),
+                  const Text("Don't have an account?",
+                      style: TextStyle(color: appColors.white,fontSize: 12)),
                   TextButton(
                     onPressed: () {
                       Navigator.pushReplacementNamed(context, RegisterScreen.routeName);
                     },
-                    child: const Text("Create account", style: TextStyle(color: appColors.yellow)),
+                    child: const Text("Create account",
+                        style: TextStyle(color: appColors.yellow,fontSize: 12)),
                   ),
                 ],
               ),

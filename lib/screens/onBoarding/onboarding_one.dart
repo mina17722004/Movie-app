@@ -21,6 +21,7 @@ class onBoardingOne extends StatelessWidget {
           child: Stack(
             children: [
               Container(
+
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   gradient: LinearGradient(
@@ -28,6 +29,7 @@ class onBoardingOne extends StatelessWidget {
                     end: Alignment.topCenter,
                     colors: [
                  Colors.black,Colors.transparent
+
                     ],
                   ),
                 ),
@@ -69,7 +71,8 @@ class onBoardingOne extends StatelessWidget {
                         Navigator.pushNamed(context,onboardingTwo.routeName);
                       },
                       child:
-                        Container(height: 16,width: 400,
+
+                        Container(height: 20,width: 400,
                           child: Text(
                             'Explore Now',textAlign: TextAlign.center,
                             style: TextStyle(color: appColors.black, fontWeight: FontWeight.bold),

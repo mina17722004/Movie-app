@@ -36,6 +36,8 @@ class onboardingSix extends StatelessWidget {
                   ),
                 ),
               ),
+
+
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
@@ -61,6 +63,7 @@ class onboardingSix extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+
                       SizedBox(height: 20),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(

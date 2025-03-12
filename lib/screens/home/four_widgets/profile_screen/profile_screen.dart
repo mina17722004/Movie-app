@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mm/screens/Login/login_screen.dart';
 import 'package:mm/screens/home/four_widgets/profile_screen/edit_profile_screen.dart';
 import 'package:mm/screens/home/home.dart';
 import 'package:mm/theme/app_assets.dart';
@@ -114,8 +115,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     _profileButton(context, "Edit Profile", appColors.yellow,
                         appColors.black, EditProfileScreen.routeName),
                     SizedBox(width: 10),
-                    _profileButton(context, "Exit", appColors.red,
-                        appColors.white, HomeScreen.routeName),
+                    _profileButton(context, "Logout", appColors.red,
+                        appColors.white, LoginScreen.routeName),
                   ],
                 ),
               ],
@@ -217,7 +218,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
       Navigator.pushReplacementNamed(context, routeName);
     },
     child: Text(text,
-        style: TextStyle(color: textColor, fontWeight: FontWeight.bold)),
+        style: TextStyle(color: textColor, fontWeight: FontWeight.bold,fontSize: 12)),
   );}
   Widget _infoBox(String count, String label) {
     return Column(
